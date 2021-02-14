@@ -1,0 +1,8 @@
+type Query {
+  me: User!
+}
+
+# -- fragment사용할때
+# type Query {
+#   me: User!
+# }

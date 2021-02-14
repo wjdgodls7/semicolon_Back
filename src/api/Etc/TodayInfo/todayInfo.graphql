@@ -1,0 +1,10 @@
+type TodayInfo {
+  newCase: String!
+  countryName: String!
+  temp: String!
+  weather: String!
+}
+
+type Query {
+  todayInfo(location: String!, latitude: Float!, longitude: Float!): TodayInfo!
+}

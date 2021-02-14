@@ -1,0 +1,10 @@
+type Mutation {
+  sendNotificate(
+    username: String!
+    to: String!
+    from: String
+    message: String
+    post: String
+    state: String!
+  ): Boolean!
+}

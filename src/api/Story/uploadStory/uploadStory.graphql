@@ -1,0 +1,8 @@
+type Mutation {
+  uploadStory(
+    caption: String
+    files: String
+    tagUser: [String]
+    type: String
+  ): Story!
+}

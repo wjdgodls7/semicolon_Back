@@ -1,0 +1,3 @@
+type Mutation{
+    state(state:String!) :Boolean!
+}

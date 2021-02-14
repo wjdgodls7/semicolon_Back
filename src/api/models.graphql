@@ -1,0 +1,153 @@
+type User {
+  id: ID!
+  password: String!
+  avatar: String!
+  username: String!
+  email: String!
+  firstName: String
+  lastName: String
+  fullName: String
+  isFollowing: Boolean!
+  isSelf: Boolean!
+  bio: String
+  following: [User!]!
+  followingCount: Int!
+  followers: [User!]!
+  followersCount: Int!
+  posts: [Post!]!
+  likes: [Like!]!
+  comments: [Comment!]!
+  commentLikes: [Comment!]
+  rooms: [Room!]!
+  createdAt: String
+  updatedAt: String
+  postsCount: Int!
+  savedPosts: [Post!]
+  state: String!
+  stories: [Story]
+  clickedStories: [Story!]
+  tagedUser: [Story!]
+  recommendation: Recommendation
+  notifications: [Notification]
+  whofollow: [Notification]
+  moToken: String
+}
+
+type Recommendation {
+  id: ID!
+  user: User!
+  post: [Post]
+}
+
+type UserLogin {
+  id: ID!
+  email: String!
+  loginSecret: String
+}
+
+type Hash {
+  id: ID!
+  tag: String!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type Story {
+  id: ID!
+  files: File
+  caption: String
+  user: User!
+  tagUser: [User]
+  seenUsers: [User!]
+  state: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Post {
+  id: ID!
+  commentCount: Int!
+  location: String
+  caption: String!
+  user: User!
+  files: [File!]!
+  likes: [Like!]!
+  comments: [Comment!]!
+  isLiked: Boolean!
+  likeCount: Int!
+  createdAt: String
+  updatedAt: String
+  state: String!
+  savedByUser: [User!]
+  hashes: [Hash!]
+  notifications: [Notification]
+  recommendation: [Recommendation]
+}
+
+type Notification {
+  id: ID!
+  to: User
+  from: User
+  message: Room
+  post: Post
+  state: String!
+  createdAt: String
+  updatedAt: String
+}
+
+type Like {
+  id: ID!
+  user: User!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+}
+
+type CommentLike {
+  id: ID!
+  user: User!
+  comment: Comment!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  user: User!
+  post: Post!
+  createdAt: String
+  updatedAt: String
+  commentLikes: [User!]
+  isCommented: Boolean
+}
+
+type File {
+  id: ID!
+  url: String!
+  type: String
+  post: Post
+  story: Story
+  createdAt: String
+  updatedAt: String
+}
+
+type Room {
+  id: ID!
+  participants: [User!]!
+  messages: [Message!]!
+  notifications: [Notification]
+  createdAt: String
+  updatedAt: String
+}
+
+type Message {
+  id: ID!
+  text: String!
+  from: User!
+  to: User!
+  room: Room!
+  createdAt: String
+  updatedAt: String
+}

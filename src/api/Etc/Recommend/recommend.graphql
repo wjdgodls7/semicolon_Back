@@ -1,0 +1,9 @@
+type Recommend {
+  userId: String!
+  postId: String!
+  isLikes: String!
+}
+
+type Query {
+  Recommendation: [Recommend!]!
+}
